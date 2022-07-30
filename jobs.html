@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table, th, td{
+            border: 1px solid black;
+        }
+    </style>
+    <link rel="stylesheet" href="style/job.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs Information</title>
+</head>
+<body>
+    <nav>
+        <a href="jobs.html">Jobs</a>
+        <a href="resume.html">Resume</a>
+        <a href="index.html">Home</a> 
+    </nav>
+    <main>
+        <h1>Job Information</h1>
+        <div>
+            <label for="major">Pick your major</label>
+            <select name="major" id="major">
+                <optgroup label="Major">
+                    <option value="STEM">STEM</option>
+                    <option value="Non-STEM">Non-STEM</option>
+                </optgroup>
+            </select>
+        </div>
+        
+        <div>
+            <form>
+                <fieldset>
+                    <legend>Information</legend>
+                    <label for="major">Major</label>
+                    <br>
+                    <input type="text" id="major">
+                    <br><br>
+                    <label for="dreamjob">Dream Job</label>
+                    <br>
+                    <input type="text" id="dreamjob">
+                </fieldset>
+            </form>
+        </div>
+            
+        <div>
+            <label for="preference">Work Preference</label>
+            <input list="preferences" id="preference" name="preference">
+            <datalist id="preferences">
+                <option>On-Site</option>
+                <option>Remote</option>
+                <option>Hybrid</option>
+            </datalist>
+        </div>
+
+        
+        <div id="jobInfo">
+            <table >
+                <caption>Job Information</caption>
+                <colgroup>
+                    <col span="3" style="background-color:lightblue;">
+                </colgroup>
+                <tr>
+                    <th>Major</th>
+                    <th>Job</th>
+                    <th>Salary(yearly)</th>
+                </tr>
+                <tr>
+                    <th>CS</th>
+                    <th>Software Engineer</th>
+                    <td>62000-130000</td>
+                </tr>
+            </table>
+        </div>
+        
+        
+        
+    </main>
+    <hr></hr>
+    <details>
+        <summary>Here are some links that may be helpful for finding a job</summary>
+        <ul>
+            <li><a href="https://www.linkedin.com/">Linkedin</a></li>
+            <li><a href="https://joinhandshake.com/">HandShake</a></li>
+            <li><a href="https://www.angellist.com/">Angel List</a></li>
+        </ul>
+        
+    </details>
+
+    <div>
+        <h2>Once you get the chance of interview, you may want to check out this video for some good tips</h2>
+        <video width="640" height="400" controls>
+            <source src="video/interview.mp4">
+        </video>
+        <br></br>
+        <cite>source of video: https://www.youtube.com/watch?v=KukmClH1KoA</cite>
+    </div>
+    
+    <hr>
+    <form>
+        <label for="comment">If you have any comment for this site, you can leave your valuable comment below</label>
+        <br>
+        <textarea id="comment"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

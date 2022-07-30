@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import {showDialog , createDialog, addNewPost, storeItem, loadItem} from './script/styledblog.js'
+        const nb = document.getElementById("addnew");
+        let d = document.getElementById("dialog");
+        const inputT = document.getElementById("title");
+        const inputS = document.getElementById("summary");
+        function func(){
+            inputT.value = "";
+            inputS.value = "";
+            d.showModal();
+        }
+        const ob = document.getElementById("ok");
+
+        function obfunc(){
+            addNewPost(inputT, inputS);
+        }
+        
+        ob.addEventListener("click", obfunc);
+        
+        nb.addEventListener("click", func);
+        let lb = document.getElementById("loadstore");
+        lb.addEventListener("click", loadItem);
+    </script>
+
+    <style>
+        button{
+            background-color: aquamarine;
+            border-radius: 10rem;
+            height: 5rem;
+            width: auto;
+            margin: 1rem;
+        }
+        img{
+            height: 2.5rem;
+            width: auto;
+        }
+        #addnew{
+            height: 3rem;
+            width: auto;
+        }
+        #ok{
+            height: 2rem;
+            width: auto;
+        }
+        #cancel{
+            height: 2rem;
+            width: auto;
+        }
+        #editbutton{
+            height: 2rem;
+            width: auto;
+        }
+        #cancelbutton{
+            height: 2rem;
+            width: auto;
+        }
+        div{
+            border-radius: 10rem;
+            border: 1px solid black;
+            margin: 1rem;
+            text-align: center;
+        }
+        dialog {
+            border: solid gray 5px;
+            border-radius: 10px;
+        }
+
+        dialog::backdrop {
+            /* for dialog-polyfill */
+            /* a transparent shade of gray */
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        main{
+            text-align: center;
+        }
+        header{
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 10rem;
+        }
+    </style>
+    <link rel="stylesheet" href="crudstyle.css">
+
+</head>
+    <nav>
+        <a href="jobs.html">Jobs</a>
+        <a href="resume.html">Resume</a>
+        <a href="index.html">Home</a> 
+        <a href="styledcrud.html">Blog</a>
+    </nav>
+    <header>
+        <button id="loadstore" style="color: #000;">Load Stored Post</button>
+        <p>only need to load once!</p>
+    </header>
+<body>
+    <template>
+        <h2>Post Title</h1>
+        <h3>Post Date</h2>
+        <p>Post Summary</p>
+    </template>
+    <main>
+        <h1>My Blog</h1>
+        <figure>
+            <img id="addnew" src="img/addnew.webp">
+            <figcaption>add new post</figcaption>
+        </figure>
+        
+        <dialog id="dialog">
+            <form method="dialog">
+                <label for="title">Post Title</label>
+                <input type="text" id="title">
+                <br>
+                <label for="sumamry">Post Summary</label>
+                <textarea type="text" id="summary"></textarea>
+                <br>
+                <button id="ok">Ok</button>
+                <button id="cancel">Cancel</button>
+            </form>
+        </dialog>
+    </main>
+    
+
+
+    
+</body>
+</html>

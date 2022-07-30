@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import {showDialog , createDialog, addNewPost, storeItem, loadItem} from './script/blog.js'
+        const nb = document.getElementById("addnew");
+        let d = document.getElementById("dialog");
+        const inputT = document.getElementById("title");
+        const inputS = document.getElementById("summary");
+        function func(){
+            inputT.value = "";
+            inputS.value = "";
+            showDialog(d);
+        }
+        const ob = document.getElementById("ok");
+
+        function obfunc(){
+            addNewPost(inputT, inputS);
+        }
+        
+        ob.addEventListener("click", obfunc);
+        
+        nb.addEventListener("click", func);
+        let lb = document.getElementById("loadstore");
+        lb.addEventListener("click", loadItem);
+    </script>
+
+</head>
+<header>
+    <button id="loadstore">Load Stored Post</button>
+</header>
+<body>
+    <template>
+        <h2>Post Title</h1>
+        <h3>Post Date</h2>
+        <p>Post Summary</p>
+    </template>
+    <h1>My Blog</h1>
+    <button id="addnew">Add New Post</button>
+    <dialog id="dialog">
+        <form method="dialog">
+            <label for="title">Post Title</label>
+            <input type="text" id="title">
+            <br>
+            <label for="sumamry">Post Summary</label>
+            <textarea type="text" id="summary"></textarea>
+            <br>
+            <button id="ok">Ok</button>
+            <button id="cancel">Cancel</button>
+        </form>
+    </dialog>
+
+
+
+</body>
+</html>

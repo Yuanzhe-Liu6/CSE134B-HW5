@@ -1,0 +1,45 @@
+:root{
+    --vw-lg: 1920px;
+    --vw-md: 1366px;
+    --vw-sm: 600px;
+    --bg-color: rgb(255, 255, 255);
+    --nav-color: bisque;
+    font-size: large;
+    --header-color: #1ed49d;
+}
+@font-face {
+    font-family: CustomFont;
+    src: url(./font/LoveChristabelaRegular.ttf);
+}
+nav {
+    background-color: var(--nav-color);
+    position:fixed;
+    top: 0;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: right;
+    padding-right: 20%;
+    font-family: CustomFont, serif, 'Times New Roman', Times;
+}
+nav a:hover{
+    background-color: sienna;
+    
+}
+
+nav a{
+/*     background-color: var(--nav-color);
+    padding-right: 5rem;
+    text-align: center; */
+    float: right;
+    display: block;
+    background-color: var(--nav-color);
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+header{
+    margin-top: 4rem;
+}

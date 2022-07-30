@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type = "module" src="script/customdialog.js"></script>
+        <script type="module">
+            
+            function alertfuc(){
+                alert("Alert pressed");
+            }
+            let alertb = document.getElementById("Alert");
+            alertb.addEventListener("click",alertfuc);
+
+            let out = document.getElementById("output");
+            function confirmfuc(){
+                let res = confirm("Do you confirm this?");
+                out.textContent = "The value returned by the confirm method is : " + res;
+                
+            }
+            let confirmb = document.getElementById("Confirm");
+            confirmb.addEventListener("click",confirmfuc);
+
+            function promptfuc(){
+                let p = prompt("Write Some Thing");
+                if(p != null){
+                    out.textContent = p.toString();
+                }
+                else{
+                    out.textContent = "User didn\’t enter anything";
+                }
+            }
+            let promptb = document.getElementById("Prompt");
+            promptb.addEventListener("click", promptfuc);
+
+            function spromptfuc(){
+                let p = prompt("Write Some Thing");
+                if(p != null){
+                    out.textContent = p.toString();
+                }
+                else{
+                    out.textContent = "User didn\’t enter anything";
+                }
+            }
+            let spromptb = document.getElementById("SPrompt");
+            spromptb.addEventListener("click", spromptfuc);
+            
+
+            let dirty = "<b onmouseover="+"alert('haha')"+">Something</b>";
+            
+            
+        </script>
+
+    </head>
+
+    <body>
+        <h1>Simple Dialog</h1>
+        <hr></br>
+        <button type="button" id="Alert">Alert</button>
+        <button type="button" id="Confirm">Confirm</button>
+        <button type="button" id="Prompt">Prompt</button>
+        <button type="button" id="SPrompt">Safer Prompt</button>
+        
+        <br></br>
+        <output id="output"></output>
+        
+        <hr></hr>
+
+        <h1>Custom Dialog</h1>
+        <button type="button" id="cdAlert">Alert</button>
+        <button type="button" id="cdConfirm">Confirm</button>
+        <button type="button" id="cdPrompt">Prompt</button>
+
+        <br></br>
+        <dialog id="dialog"></dialog>
+        <output id="cdoutput"></output>
+
+
+          
+    </body>
+
+
+</html>

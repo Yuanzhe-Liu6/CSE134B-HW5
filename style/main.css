@@ -1,0 +1,174 @@
+:root{
+    --vw-lg: 1920px;
+    --vw-md: 1366px;
+    --vw-sm: 600px;
+    --bg-color: rgb(255, 255, 255);
+    --nav-color: bisque;
+    font-size: large;
+    --header-color: #1ed49d;
+}
+
+@font-face {
+    font-family: CustomFont;
+    src: url(../font/LoveChristabelaRegular.ttf);
+}
+
+
+* {
+    background-color: var(--bg-color);
+}
+
+
+header{
+    font-size: xx-large;
+    margin: auto;
+    text-align: center;
+    padding-top: 1.5rem;
+    height: 35rem;
+    background: url("../img/home3.png") repeat 0 0;
+    background-color: var(--header-color);
+    
+}
+
+
+
+
+header > h1{
+    background-color: yellow;
+    border: 0.1rem solid greenyellow;
+    font-size: 2rem;
+    border-radius: 100%;
+    width: 8rem;
+
+}
+
+
+nav {
+    background-color: var(--nav-color);
+    position:fixed;
+    top: 0;
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: right;
+    padding-right: 20%;
+    font-family: CustomFont, serif, 'Times New Roman', Times;
+}
+
+nav a:hover{
+    background-color: sienna;
+    
+}
+
+nav a{
+/*     background-color: var(--nav-color);
+    padding-right: 5rem;
+    text-align: center; */
+    float: right;
+    display: block;
+    background-color: var(--nav-color);
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+main{
+    text-align: center;
+}
+aside{
+    float: right;
+
+    background-color: aqua;
+    text-align: center;
+}
+
+
+aside *{
+    background-color: aqua;
+}
+
+
+iframe{
+    text-align: center;
+    background-color: aliceblue;
+}
+.tip{
+    border: 1px outset aquamarine;
+}
+
+
+pre {
+    font-size: 1.5rem;
+}
+ol{
+    text-align: left;
+    list-style-position: inside;
+    padding-left: 40%;
+    font-size: 1.5rem;
+  }
+#beWhat{
+    text-align: left;
+}
+@media screen and (max-width: 1366px) {
+    header{
+        font-size: xx-large;
+        margin: auto;
+        text-align: center;
+        padding-top: 1.5rem;
+        height: 35rem;
+        background: url("../img/career.jpg") repeat 0 0;
+        background-color: var(--header-color);
+    }
+    pre {
+        font-size: 1rem;
+    }
+
+
+
+    ol{
+        padding: 0%;
+        font-size: 1.5rem;
+        text-align: left;
+
+      }
+
+    iframe{
+        width: 90vw;
+        height: 80vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    header{
+        font-size: xx-large;
+        margin: auto;
+        text-align: center;
+        padding-top: 1.5rem;
+        height: 17rem;
+        background: url("../img/home1.png") repeat 0 0;
+        background-color: var(--header-color);
+    }
+
+    pre {
+        font-size: 1rem;
+    }
+
+    ol{
+
+        font-size: 1rem;
+      }
+    aside{
+        border: 1px solid black;
+        background-color: white;
+        float: none;
+        text-align: left;
+    }
+    aside *{
+        background-color: white;
+    }
+
+    iframe{
+        width: 90vw;
+        height: 60vh;
+    }
+}
