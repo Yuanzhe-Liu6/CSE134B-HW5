@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin: 1em 1em;
+        }
+        label{
+            display: block;
+        }
+        form{
+            border: 1px solid black;
+            border-radius: 25px;
+            text-align: center;
+        }
+        pre {
+            white-space: pre-wrap;  
+            word-wrap: break-word;     
+        }
+
+    </style>
+    <script type="module">
+        window.addEventListener('DOMContentLoaded',init);
+
+        function init(){
+            let postB = document.getElementById('postbutton');
+            let getB = document.getElementById('getbutton');
+            let putB = document.getElementById('putbutton');
+            let deleteB = document.getElementById('deletebutton');
+            postB.addEventListener('click',postaction);
+            getB.addEventListener('click',getaction);
+            putB.addEventListener('click',putaction);
+            deleteB.addEventListener('click',deleteaction);
+        }
+        
+        function postaction(){
+            event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            let form = document.getElementById('test_form');
+            let payload = new FormData(form);
+            payload.append("date", (new Date()).toDateString())
+            xhr.open('POST','https://httpbin.org/post', true)
+            xhr.responseType = 'json';
+            
+            xhr.onload = ()=>{
+                let output = document.getElementById('output');
+                if(output.firstChild){
+                    output.removeChild(output.firstChild);
+                }
+                let pre = document.createElement('pre');
+                pre.textContent = JSON.stringify(xhr.response, null, 2)
+                output.appendChild(pre);
+            }
+            xhr.send(payload);
+        };
+
+        function getaction(){
+            event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            let form = document.getElementById('test_form');
+            let payload = new FormData(form);
+            payload.append("date", (new Date()).toDateString())
+            xhr.open('GET','https://httpbin.org/get', true)
+            xhr.responseType = 'json';
+            
+            xhr.onload = ()=>{
+                let output = document.getElementById('output');
+                let pre = document.createElement('pre');
+                if(output.firstChild){
+                    output.removeChild(output.firstChild);
+                }
+                pre.textContent = JSON.stringify(xhr.response, null, 2)
+                
+                output.appendChild(pre);
+                
+            }
+            xhr.send(payload);
+        }
+
+        function putaction(){
+            event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            let form = document.getElementById('test_form');
+            let payload = new FormData(form);
+            payload.append("date", (new Date()).toDateString())
+            xhr.open('PUT','https://httpbin.org/put', true)
+            xhr.responseType = 'json';
+            
+            xhr.onload = ()=>{
+                let output = document.getElementById('output');
+                let pre = document.createElement('pre');
+                if(output.firstChild){
+                    output.removeChild(output.firstChild);
+                }
+                pre.textContent = JSON.stringify(xhr.response, null, 2)
+                
+                output.appendChild(pre);
+                
+            }
+            xhr.send(payload);
+        }
+
+
+        function deleteaction(){
+            event.preventDefault();
+            let xhr = new XMLHttpRequest();
+            let form = document.getElementById('test_form');
+            let payload = new FormData(form);
+            payload.append("date", (new Date()).toDateString())
+            xhr.open('DELETE','https://httpbin.org/delete', true)
+            xhr.responseType = 'json';
+            
+            xhr.onload = ()=>{
+                let output = document.getElementById('output');
+                let pre = document.createElement('pre');
+                if(output.firstChild){
+                    output.removeChild(output.firstChild);
+                }
+                pre.textContent = JSON.stringify(xhr.response, null, 2)
+                
+                output.appendChild(pre);
+                
+            }
+            xhr.send(payload);
+        }
+        
+        function outputJson(string){
+            console.log(typeof(string));
+            for (let i in string){
+                console.log(i);
+                console.log(string[i]);
+                if(string[i] == '}'){
+                    string = string.slice(0,i) + '\n' + string.slice(i);
+                    i++;
+                }
+            }
+            return string;
+        }
+
+        
+        
+    </script>
+
+    
+</head>
+<body>
+    <form id="test_form" target="response_frame">
+        <div>
+            <label for="id">ID</label>
+            <input id="id" name="ID" type="number">
+        </div>
+        
+        <div>
+            <label for="articleN">Article Name</label>
+            <input id="articleN" name="ArticleName" type="text">
+        </div>
+        
+        <div>
+            <label for="article">Article</label>
+            <textarea id="article" name="Article"></textarea>
+        </div>
+
+
+        <div>
+            <button id="postbutton" type="button">postBtn</button>
+            <button id="getbutton" type="button">getBtn</button>
+            <button id="putbutton" type="button">putBtn</button>
+            <button id="deletebutton" type="button">deleteBtn</button>
+        </div>
+        
+    </form>
+
+    <fieldset>
+        <legend>Response</legend>
+        <output id="output"></output>
+    </fieldset>
+
+    
+
+    
+</body>
+</html>
